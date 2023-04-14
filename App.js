@@ -1,10 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-web';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>SwipeRight</Text>
+      <View style={styles.buttons}>
+        <Button title="Search for Tutorial" />
+        <Button title="Browse Categories" />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -17,4 +22,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttons: {
+    flexDirection: "row",
+  }
 });
