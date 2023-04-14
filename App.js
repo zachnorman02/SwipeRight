@@ -1,17 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-web';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from './HomeScreen';
+import Tutorial from './Tutorial';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>SwipeRight</Text>
-      <View style={styles.buttons}>
-        <Button title="Search for Tutorial" />
-        <Button title="Browse Categories" />
-      </View>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Tutorial" component={Tutorial} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -23,6 +25,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttons: {
+    width: "100%",
     flexDirection: "row",
+    justifyContent: "space-evenly",
   }
 });
